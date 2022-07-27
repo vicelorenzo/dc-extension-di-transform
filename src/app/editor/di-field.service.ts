@@ -63,21 +63,26 @@ export class DiFieldService {
   }
 
   parseData() {
-    if (this.data == null) {
-      // initialize the data with an empty object
-      this.data = {
-        crop: [0, 0, 0, 0],
-        rot: 0,
-        hue: 0,
-        sat: 0,
-        bri: 0,
-        fliph: false,
-        flipv: false,
-        poi: {x: -1, y: -1},
-        aspectLock: 'clear',
-        query: ''
-      };
+    if (this.data.image != null) {
+      if (this.data == null) {
+        // initialize the data with an empty object
+        this.data = {
+          crop: [0, 0, 0, 0],
+          rot: 0,
+          hue: 0,
+          sat: 0,
+          bri: 0,
+          fliph: false,
+          flipv: false,
+          poi: {x: -1, y: -1},
+          aspectLock: 'clear',
+          query: ''
+        };
+      }
+    } else {
+      this.data = null
     }
+
     if (this.data.image != null && this.data.image._meta == null) {
       // image is uninitialized.
       this.data.image = null;
