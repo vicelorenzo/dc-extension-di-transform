@@ -80,7 +80,18 @@ export class DiFieldService {
         };
       }
     } else {
-      this.data = null
+      this.data = {
+          crop: [0, 0, 0, 0],
+          rot: 0,
+          hue: 0,
+          sat: 0,
+          bri: 0,
+          fliph: false,
+          flipv: false,
+          poi: null,
+          aspectLock: 'clear',
+          query: ''
+        };
     }
 
     if (this.data.image != null && this.data.image._meta == null) {
